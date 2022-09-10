@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionViewController" customModule="Trivia" customModuleProvider="target">
+            <connections>
+                <outlet property="questionLabel" destination="f61-6Q-iTC" id="ukl-4q-MWr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RANDOM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMr-ts-Fg1">
+                    <rect key="frame" x="32" y="52" width="350" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Zkw-fM-X91"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Si el dolor se va, la inflamacion vuelve?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f61-6Q-iTC">
+                    <rect key="frame" x="32" y="380" width="350" height="76.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zO-nW-yeF">
+                    <rect key="frame" x="244" y="712" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="NiC-4g-NEI"/>
+                        <constraint firstAttribute="width" constant="150" id="teN-j8-vqv"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" backgroundImage="wrong"/>
+                    <connections>
+                        <action selector="wrongAnswerTapped:" destination="-1" eventType="touchUpInside" id="Bil-xI-Jvh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlP-6S-HUd">
+                    <rect key="frame" x="20" y="712" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="2Fe-79-UvU"/>
+                        <constraint firstAttribute="width" constant="150" id="ret-ne-p0D"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" backgroundImage="correct"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" image="correct"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="correctAnswerTapped:" destination="-1" eventType="touchUpInside" id="UJY-GJ-RnT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.83630543950000003" green="0.89259761569999996" blue="0.98824816940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="6zO-nW-yeF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="D5K-4W-tSb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6zO-nW-yeF" secondAttribute="trailing" constant="20" id="Dsx-dG-i4u"/>
+                <constraint firstItem="f61-6Q-iTC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="GLs-2t-Huk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dMr-ts-Fg1" secondAttribute="trailing" constant="32" id="Jwr-zA-O34"/>
+                <constraint firstItem="f61-6Q-iTC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="S6h-aw-ANO"/>
+                <constraint firstAttribute="trailing" secondItem="f61-6Q-iTC" secondAttribute="trailing" constant="32" id="SJz-CP-mTS"/>
+                <constraint firstItem="hlP-6S-HUd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="YCk-kC-4gr"/>
+                <constraint firstItem="hlP-6S-HUd" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="awn-qT-fUk"/>
+                <constraint firstItem="f61-6Q-iTC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fb0-ZV-cvD"/>
+                <constraint firstItem="dMr-ts-Fg1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="hhB-qd-wVq"/>
+                <constraint firstItem="dMr-ts-Fg1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="w1o-BM-H47"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="correct" width="480" height="480"/>
+        <image name="wrong" width="600" height="600"/>
+    </resources>
+</document>

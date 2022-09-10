@@ -7,16 +7,34 @@
 
 import UIKit
 
-class initialViewController: UIViewController {
-
+final class initialViewController: UIViewController {
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var userTextField: UITextField!
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("1 viewDidLoad invocado")
+        
         propertiesSetup()
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("2 viewWillAppear invocado")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("3 viewDidAppear invocado")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("4 viewWillDisappear invocado")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("5 viewDidDisappear invocado")
     }
     
     // MARK: - actions
@@ -25,10 +43,16 @@ class initialViewController: UIViewController {
     }
     
     @IBAction func startTriviaTapped(_ sender: Any) {
-        guard let name = userTextField.text else {
-            return print("El campo usuario está vacío.")
+        if userTextField.hasText {
+            let vc = QuestionViewController(
+                nibName: "QuestionViewController",
+                bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        return print("El nombre del usuario es \(name).")
+        else {
+            print("Por favor ingrese un nombre de usuario primero.")
+            
+        }
     }
     
     // MARK: - setup
