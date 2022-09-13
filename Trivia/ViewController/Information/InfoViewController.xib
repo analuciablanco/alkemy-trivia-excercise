@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoViewController" customModule="Trivia" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Alkemy Trivia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-y2-5H5">
+                    <rect key="frame" x="0.0" y="66" width="414" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alkemy" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-B5-0gS">
+                    <rect key="frame" x="40" y="84" width="334" height="165"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-Eo-sM7">
+                    <rect key="frame" x="0.0" y="244.5" width="414" height="651.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo9-3S-ZEn">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi5-jr-tKK">
+                                    <rect key="frame" x="24" y="0.0" width="366" height="802"/>
+                                    <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur risus ex, et sollicitudin sapien congue vitae. Praesent pretium hendrerit nulla sit amet elementum. Sed vel lorem at dui consectetur vulputate ac ut erat. Etiam eu sem non tortor convallis vulputate. Aenean egestas aliquam velit vel aliquam. Integer sed dapibus augue. Duis ut gravida metus, vel sollicitudin leo. Donec cursus urna sit amet massa blandit aliquam. Sed rhoncus egestas dictum. Cras accumsan auctor odio, in vestibulum metus.
+
+Nullam at tincidunt justo. Mauris eu ex ultrices, ultrices elit at, feugiat neque. Etiam blandit quis est id placerat. Vestibulum tincidunt non enim in tempor. Aenean eu tortor ac massa tincidunt dignissim. Maecenas sed lacinia ante. In lacinia lectus sed cursus gravida. In hac habitasse platea dictumst. Donec a nunc ac nibh congue lobortis in at massa. Nunc sodales eleifend dolor, non tempor est viverra ac. Donec placerat augue nisl, sit amet vehicula leo sodales elementum. Sed sem turpis, euismod sit amet turpis ut, imperdiet ornare nulla. Vivamus id dui orci.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.83630543950000003" green="0.89259761569999996" blue="0.98824816940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1000" id="8QP-eb-dOP"/>
+                                <constraint firstAttribute="trailing" secondItem="gi5-jr-tKK" secondAttribute="trailing" constant="24" id="RHX-kb-5m8"/>
+                                <constraint firstItem="gi5-jr-tKK" firstAttribute="leading" secondItem="xo9-3S-ZEn" secondAttribute="leading" constant="24" id="aMc-6R-8dp"/>
+                                <constraint firstItem="gi5-jr-tKK" firstAttribute="top" secondItem="xo9-3S-ZEn" secondAttribute="top" id="duI-hL-9fQ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xo9-3S-ZEn" secondAttribute="bottom" id="WV8-kG-VEo"/>
+                        <constraint firstAttribute="trailing" secondItem="xo9-3S-ZEn" secondAttribute="trailing" id="oTe-QD-x2A"/>
+                        <constraint firstItem="xo9-3S-ZEn" firstAttribute="top" secondItem="rXZ-Eo-sM7" secondAttribute="top" id="vFX-M5-5BT"/>
+                        <constraint firstItem="xo9-3S-ZEn" firstAttribute="leading" secondItem="rXZ-Eo-sM7" secondAttribute="leading" id="yps-rE-sv6"/>
+                        <constraint firstItem="xo9-3S-ZEn" firstAttribute="width" secondItem="rXZ-Eo-sM7" secondAttribute="width" id="zgw-rf-SiS"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.83630543950000003" green="0.89259761569999996" blue="0.98824816940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="hYe-B5-0gS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="09L-cI-b5p"/>
+                <constraint firstItem="rXZ-Eo-sM7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Hn9-rA-CdS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hYe-B5-0gS" secondAttribute="trailing" constant="40" id="eze-lh-3uE"/>
+                <constraint firstItem="Btp-y2-5H5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="22" id="g0U-FL-d4i"/>
+                <constraint firstItem="rXZ-Eo-sM7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i7p-n8-GeB"/>
+                <constraint firstItem="Btp-y2-5H5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rCD-RG-soK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Btp-y2-5H5" secondAttribute="trailing" id="vBe-dI-Ab1"/>
+                <constraint firstItem="rXZ-Eo-sM7" firstAttribute="top" secondItem="Btp-y2-5H5" secondAttribute="bottom" constant="140" id="wBQ-eO-wjL"/>
+                <constraint firstAttribute="bottom" secondItem="rXZ-Eo-sM7" secondAttribute="bottom" id="yDU-rA-PsJ"/>
+                <constraint firstItem="hYe-B5-0gS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="zxt-n9-UvP"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="449.33035714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo-alkemy" width="600" height="165"/>
+    </resources>
+</document>

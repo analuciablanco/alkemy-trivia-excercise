@@ -41,6 +41,10 @@ final class initialViewController: UIViewController {
     @IBAction func hideKeyboardOnButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
     }
+    @IBAction func goToInfoView(_ sender: Any) {
+        let vc = InfoViewController(nibName: "InfoViewController", bundle: nil)
+        self.navigationController?.present(vc, animated: true)
+    }
     
     @IBAction func startTriviaTapped(_ sender: Any) {
         if userTextField.hasText {
@@ -51,7 +55,6 @@ final class initialViewController: UIViewController {
         }
         else {
             print("Por favor ingrese un nombre de usuario primero.")
-            
         }
     }
     
