@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class initialViewController: UIViewController {
     
@@ -20,7 +21,7 @@ final class initialViewController: UIViewController {
         propertiesSetup()
         self.hideKeyboardWhenTappedAround()
         
-        creatingTabBarController()
+        presentTabBarController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +41,10 @@ final class initialViewController: UIViewController {
     }
     
     // MARK: - Methods
-    func creatingTabBarController() {
-        let tabBarController = UITabBarController()
-        let firstTab = CategoriesViewController()
-        let secondTab = QuestionViewController()
-        
-        firstTab.tabBarItem = UITabBarItem(title: "Category",
-                                           image: UIImage(named: "xmark"),
-                                           tag: 0)
-        
-        secondTab.tabBarItem = UITabBarItem(title: "Random",
-                                            image: UIImage(named: "pencil"),
-                                            tag: 1)
-        
-        tabBarController.viewControllers = [firstTab, secondTab]
+    func presentTabBarController() {
+        let tabBarController = TabBarController()
+        tabBarController.modalPresentationStyle = .overFullScreen
+        self.present(tabBarController, animated: true)
     }
     
     // MARK: - actions

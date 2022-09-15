@@ -10,10 +10,7 @@ import UIKit
 class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var categories: [Category] = [
-        Category(id: 0, name: "Primera"),
-        Category(id: 1, name: "Segunda")
-    ]
+    var categories: [Category]?
     
     override func viewWillAppear(_ animated: Bool) {
         reloadCategories()
@@ -22,6 +19,7 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCategories()
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -30,10 +28,16 @@ class CategoriesViewController: UIViewController {
     }
     
     private func reloadCategories() {
+        getCategories()
         tableView.reloadData()
     }
     
     // MARK: - Methods
+    private func getCategories() {
+        CategoriesService().getCategories { categories in
+            self.categories = categories
+        }
+    }
     
     private func showQuestions(for category: Category) {
         let questionVC = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
@@ -47,7 +51,7 @@ class CategoriesViewController: UIViewController {
 // MARK: - TableView dependencies
 extension CategoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return categories?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +60,7 @@ extension CategoriesViewController: UITableViewDataSource {
         
         var contentConfig = cell.defaultContentConfiguration()
         contentConfig.textProperties.font = UIFont.systemFont(ofSize: 24)
-        contentConfig.text = categories[indexPath.row].name
+        contentConfig.text = categories?[indexPath.row].name
 
         cell.contentConfiguration = contentConfig
         
