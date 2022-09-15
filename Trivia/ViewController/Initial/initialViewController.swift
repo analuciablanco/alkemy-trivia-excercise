@@ -19,6 +19,8 @@ final class initialViewController: UIViewController {
         
         propertiesSetup()
         self.hideKeyboardWhenTappedAround()
+        
+        creatingTabBarController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +39,23 @@ final class initialViewController: UIViewController {
         print("5 viewDidDisappear invocado")
     }
     
+    // MARK: - Methods
+    func creatingTabBarController() {
+        let tabBarController = UITabBarController()
+        let firstTab = CategoriesViewController()
+        let secondTab = QuestionViewController()
+        
+        firstTab.tabBarItem = UITabBarItem(title: "Category",
+                                           image: UIImage(named: "xmark"),
+                                           tag: 0)
+        
+        secondTab.tabBarItem = UITabBarItem(title: "Random",
+                                            image: UIImage(named: "pencil"),
+                                            tag: 1)
+        
+        tabBarController.viewControllers = [firstTab, secondTab]
+    }
+    
     // MARK: - actions
     @IBAction func hideKeyboardOnButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
@@ -48,8 +67,8 @@ final class initialViewController: UIViewController {
     
     @IBAction func startTriviaTapped(_ sender: Any) {
         if userTextField.hasText {
-            let vc = QuestionViewController(
-                nibName: "QuestionViewController",
+            let vc = CategoriesViewController(
+                nibName: "CategoriesViewController",
                 bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
