@@ -14,4 +14,19 @@ class AlamofireAPIClient {
             completion(response.result)
         }
     }
+    
+    func post(url: String, parameters: [String: String]) {
+        AF.request(url,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default)
+        .response { response in
+            switch response.result {
+            case .success(_):
+                print("Se dio de alta correctamente una categoria")
+            case .failure(let error):
+                print("Error en post", error)
+            }
+        }
+    }
 }

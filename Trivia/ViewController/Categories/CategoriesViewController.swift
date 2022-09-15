@@ -39,6 +39,11 @@ class CategoriesViewController: UIViewController {
         }
     }
     
+//    private func postCategory() {
+//        CategoriesService().postNewCategory(["id" : "77",
+//                                             "name" : "Music"])
+//    }
+    
     private func showQuestions(for category: Category) {
         let questionVC = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
         questionVC.title = category.name

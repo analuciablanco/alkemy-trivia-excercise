@@ -9,15 +9,15 @@ import Foundation
 import Alamofire
 
 class CategoriesService {
+    private let categoriesURL = "https://opentdb.com/api_category.php"
+    
     struct Categories: Codable {
         let trivia_categories: [Category]
     }
     
-    let apiClient = AlamofireAPIClient()
+    private let apiClient = AlamofireAPIClient()
     
     func getCategories(completion: @escaping ([Category]) -> Void) {
-        let categoriesURL = "https://opentdb.com/api_category.php"
-        
         apiClient.get(url: categoriesURL, forModel: Categories.self) { response in
             switch response {
             case .success(let data):
@@ -26,5 +26,9 @@ class CategoriesService {
                 completion([])
             }
         }
+    }
+    
+    func postNewCategory(_ item: [String: String]) {
+        apiClient.post(url: categoriesURL, parameters: item)
     }
 }
