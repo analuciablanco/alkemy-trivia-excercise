@@ -10,53 +10,27 @@ import UIKit
 class CategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var categories: [Category]?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        reloadCategories()
-        print("table reloaded")
-    }
+    private var viewModel: CategoriesViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCategories()
+        viewModel = CategoriesViewModel(CategoriesService())
+        
+        viewModel?.getCategories(completion: { [weak self] in
+            self?.tableView.reloadData()
+        })
 
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-    
-    private func reloadCategories() {
-        getCategories()
-        tableView.reloadData()
-    }
-    
-    // MARK: - Methods
-    private func getCategories() {
-        CategoriesService().getCategories { categories in
-            self.categories = categories
-        }
-    }
-    
-//    private func postCategory() {
-//        CategoriesService().postNewCategory(["id" : "77",
-//                                             "name" : "Music"])
-//    }
-    
-    private func showQuestions(for category: Category) {
-        let questionVC = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-        questionVC.title = category.name
-//        questionVC.categoryId = category.id
-        
-        self.navigationController?.pushViewController(questionVC, animated: true)
-    }
 }
 
-// MARK: - TableView dependencies
+// MARK: - TableView
 extension CategoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories?.count ?? 0
+        return viewModel?.categories.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +39,7 @@ extension CategoriesViewController: UITableViewDataSource {
         
         var contentConfig = cell.defaultContentConfiguration()
         contentConfig.textProperties.font = UIFont.systemFont(ofSize: 24)
-        contentConfig.text = categories?[indexPath.row].name
+        contentConfig.text = viewModel?.categories[indexPath.row].name
 
         cell.contentConfiguration = contentConfig
         
